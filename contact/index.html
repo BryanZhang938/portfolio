@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryan Zhang: Personal site and portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Contact</title>
 </head>
 <body>
     <nav>
@@ -16,9 +15,21 @@
           <li><a href="contact/index.html">Contact</a></li>
         </ul>
       </nav>
-      
-    <h1>Bryan Zhang</h1>
-    <p>Hello! My name is Bryan Zhang and I am a second-year undergraduate student at UC San Diego studying Mathematics and Data Science!</p>
-    <img src="images/IMG_5478.jpg" alt="Picture of me!">
+    <h1>Contact</h1>
+    <form action="mailto:bryanzhang938@gmail.com" method="POST" enctype="text/plain">
+        <label>
+          Email:
+          <input name="email" type="email" required>
+        </label>
+        <label>
+          Subject:
+          <input name="subject" required>
+        </label>
+        <label>
+          Message:
+          <textarea name="body" rows="5" cols="30" required></textarea>
+        </label>
+        <button>Submit</button>
+      </form>
 </body>
 </html>
