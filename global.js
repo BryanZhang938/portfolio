@@ -51,16 +51,18 @@ document.body.insertAdjacentHTML(
   </label>`,
 );
 
+const themeSelector = document.getElementById('theme-selector');
+
 function setColorScheme(colorScheme) {
+  console.log('Setting color scheme to:', colorScheme);
   document.documentElement.style.setProperty('color-scheme', colorScheme);
   themeSelector.value = colorScheme;
 }
 
 if ('colorScheme' in localStorage) {
+  console.log('Color scheme from localStorage:', localStorage.colorScheme);
   setColorScheme(localStorage.colorScheme);
 }
-
-const themeSelector = document.getElementById('theme-selector');
 
 themeSelector.addEventListener('input', function (event) {
   const selectedScheme = event.target.value;
