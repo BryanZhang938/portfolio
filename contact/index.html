@@ -25,7 +25,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.querySelector('form');
         form?.addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
             const data = new FormData(form);
             let url = form.action + '?';
@@ -34,8 +34,8 @@
                 url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
             }
 
-            url = url.slice(0, -1); // Remove the trailing '&'
-            location.href = url; // Open the email client with the prefilled fields
+            url = url.slice(0, -1);
+            location.href = url;
         });
     });
     </script>

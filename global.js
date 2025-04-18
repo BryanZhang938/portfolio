@@ -4,10 +4,9 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Step 3: Automatic navigation
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
-  : "/website/"; // change this to your GitHub repo name
+  : "/portfolio/";
 
 let pages = [
   { url: '', title: 'Home' },
@@ -27,13 +26,11 @@ for (let p of pages) {
   a.href = url;
   a.textContent = p.title;
 
-  // Highlight current page
   a.classList.toggle(
     'current',
     a.host === location.host && a.pathname === location.pathname,
   );
 
-  // Open external links in a new tab
   if (a.host !== location.host) {
     a.target = "_blank";
   }
@@ -54,18 +51,15 @@ document.body.insertAdjacentHTML(
   </label>`,
 );
 
-// Function to set the color scheme and update the select element
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
   themeSelector.value = colorScheme;
 }
 
-// Check localStorage for saved color scheme on page load
 if ('colorScheme' in localStorage) {
   setColorScheme(localStorage.colorScheme);
 }
 
-// Add event listener to update color scheme and save preference
 const themeSelector = document.getElementById('theme-selector');
 
 themeSelector.addEventListener('input', function (event) {
