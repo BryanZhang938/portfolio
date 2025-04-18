@@ -5,23 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="../global.js"></script>
 </head>
 <body>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="../resume/index.html">Resume</a></li>
-        <li><a href="https://github.com/bryanzhang938" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="../contact/index.html" class="current">Contact</a></li>
-      </ul>
-    </nav>
     <h1>Contact</h1>
-    <form action="mailto:bryanzhang938@gmail.com" method="POST" enctype="text/plain">
-        <label>
-          Email:
-          <input name="email" type="email" required>
-        </label>
+    <form action="mailto:bryanzhang938@gmail.com" method="GET">
         <label>
           Subject:
           <input name="subject" required>
@@ -31,6 +19,25 @@
           <textarea name="body" rows="5" cols="30" required></textarea>
         </label>
         <button>Submit</button>
-      </form>
+    </form>
+
+    <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('form');
+        form?.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const data = new FormData(form);
+            let url = form.action + '?';
+
+            for (let [name, value] of data) {
+                url += `${encodeURIComponent(name)}=${encodeURIComponent(value)}&`;
+            }
+
+            url = url.slice(0, -1); // Remove the trailing '&'
+            location.href = url; // Open the email client with the prefilled fields
+        });
+    });
+    </script>
 </body>
 </html>
