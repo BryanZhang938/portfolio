@@ -1,7 +1,6 @@
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
-const projects = await fetchJSON('../lib/projects.json');
-console.log(projects);
+const projects = await fetchJSON('lib/projects.json');
 const latestProjects = projects.slice(0, 3);
 
 const projectsContainer = document.querySelector('.projects');
@@ -11,7 +10,6 @@ latestProjects.forEach(project => {
 });
 
 const githubData = await fetchGitHubData('bryanzhang938');
-console.log(githubData);
 
 const profileStats = document.querySelector('#profile-stats');
 
