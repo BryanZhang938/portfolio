@@ -110,7 +110,16 @@ function renderPieChart(projectsGiven) {
   });
 }
 
+// Initial render
 renderPieChart(allProjects);
+
+// Initial render of all projects and count
+const filteredProjects = getFilteredProjects();
+projectsContainer.innerHTML = '';
+filteredProjects.forEach(project => {
+  renderProjects(project, projectsContainer, 'h2');
+});
+projectsTitle.textContent = `Projects (${filteredProjects.length})`;
 
 let searchInput = document.querySelector('.searchBar');
 
