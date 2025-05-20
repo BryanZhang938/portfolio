@@ -11,7 +11,26 @@
 <body>
   <div id="stats"></div>
   <h2>Commits by time of day</h2>
-  <div id="chart"></div>
+  
+  <dl class="files"></dl>
+  
+  <div id="scrollytelling">
+    <div id="scroll-container">
+      <div id="spacer"></div>
+      <div id="items-container"></div>
+    </div>
+    <div id="chart"></div>
+  </div>
+  
+  <h2>File sizes over time</h2>
+  
+  <div id="files-scrollytelling">
+    <div id="files-chart"></div>
+    <div id="files-scroll-container">
+      <div id="files-spacer"></div>
+      <div id="files-items-container"></div>
+    </div>
+  </div>
   
   <p id="selection-count">No commits selected</p>
   
@@ -36,6 +55,6 @@
   
   <dl id="language-breakdown" class="stats"></dl>
   
-  <script src="./main.js" type="module"></script>
+  <script src="main.js" type="module"></script>
 </body>
 </html>
